@@ -7,7 +7,7 @@ if [ ! -f "$DEX" ]; then
   exit 1
 fi
 
-if [ $(getprop ro.build.version.sdk) -ge 34 ]; then
+if [ $(/system/bin/getprop ro.build.version.sdk) -ge 34 ]; then
   if [ -w $DEX ]; then
     echo "On Android 14+, app_process cannot load writable dex."
     echo "Attempting to remove the write permission..."
